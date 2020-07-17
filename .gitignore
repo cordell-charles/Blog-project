@@ -1,0 +1,6 @@
+venv
+Pipfile
+.DS_Store
+Pipfile.lock
+django-blog.sublime-project
+django-blog.sublime-workspace
