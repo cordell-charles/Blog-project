@@ -1,0 +1,7 @@
+<div class="card mb-4" style="width: 40rem;">
+	<img src="" class="card-img-top" alt="Image to be placed here"> <!-- https://image.shutterstock.com/z/stock-photo-blogging-blog-concepts-ideas-with-white-worktable-1029506242.jpg --> 
+	<div class="card-body">
+		<h5 class="card-title"><a href='{{object.get_absolute_url }}'> {{ blog_post.title }} </a></h5>
+		<p class="card-text"> {{ blog_post.content | linebreaks }} </p>
+	</div>
+</div>
