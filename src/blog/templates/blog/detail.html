@@ -3,8 +3,7 @@
 
 {% block content %}
 
-<h1> {{object.title}} </h1>
-<p> {{object.content}} </p>
+{% include 'styling/list-inline.html' with blog_post=object truncate=False detail=True %}
 
 
 {% if request.user.is_authenticated %}

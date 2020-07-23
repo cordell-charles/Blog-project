@@ -1,7 +1,21 @@
 <div class="card mb-4" style="width: 40rem;">
-	<img src="" class="card-img-top" alt="Image to be placed here"> <!-- https://image.shutterstock.com/z/stock-photo-blogging-blog-concepts-ideas-with-white-worktable-1029506242.jpg --> 
+	{% if blog_post.image %}
+		<a href='{{object.get_absolute_url }}'>
+			<img src="{{ blog_post.image.url }}" class="card-img-top" alt="Image to be placed here">
+		</a>
+	{% endif %}
 	<div class="card-body">
-		<h5 class="card-title"><a href='{{object.get_absolute_url }}'> {{ blog_post.title }} </a></h5>
-		<p class="card-text"> {{ blog_post.content | linebreaks }} </p>
+		<h5 class="card-title"> {{ blog_post.title }} </h5>
+		<p class="card-text">
+			{% if truncate %}
+				{{ blog_post.content | linebreaks | truncatewords:30 }}
+			{% else %}
+				{{ blog_post.content | linebreaks }}
+			{% endif %}
+		</p>
+		{% if not detail %}
+			<a href='{{object.get_absolute_url }}'> View Post </a>
+		{% endif %}
+		<small class= 'text-muted'> {{ blog_post.publish_date }}</small>
 	</div>
 </div>

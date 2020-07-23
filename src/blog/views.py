@@ -21,7 +21,7 @@ def blog_post_list_view(request):
 def blog_post_create_view(request):
 	# Create new blog objects 
 	template_name = 'blog/create.html'
-	form = BlogPostForm(request.POST or None)
+	form = BlogPostForm(request.POST or None, request.FILES or none)
 	if form.is_valid():
 		obj = form.save(commit= False)
 		obj.user = request.user
